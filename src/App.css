@@ -303,3 +303,7 @@ header .nav-links li:last-child {
 .secondary {
   color: var(--secondary);
 }
+
+.capitalize{
+  text-transform: capitalize;
+}
