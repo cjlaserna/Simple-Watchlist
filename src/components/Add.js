@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import { ResultCard } from "./ResultCard";
 
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   Input,
-  useDisclosure,
 } from "@chakra-ui/react";
 
 export const Add = () => {

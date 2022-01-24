@@ -43,10 +43,14 @@ export function Movieprev({ movie }) {
 
             <Container float={"left"} px={"0"} mx={"5"}>
               <Badge display={"inline"}>Lang: {movie.original_language}</Badge>
-              <Badge display={"inline"} mx={1}>Release: {movie.release_date}</Badge>
-              <Badge display={"inline"} colorScheme={"purple"} mx={1}>Rating: {movie.popularity}</Badge>
+              <Badge display={"inline"} mx={1}>
+                Release: {movie.release_date}
+              </Badge>
+              <Badge display={"inline"} colorScheme={"purple"} mx={1}>
+                Rating: {movie.popularity}
+              </Badge>
             </Container>
-            
+
             <Text mx={5}>{movie.overview}</Text>
           </Box>
         </GridItem>

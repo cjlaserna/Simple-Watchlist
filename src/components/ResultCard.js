@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from "./context/GlobalState";
 import { GrDocumentMissing } from "react-icons/gr";
 import { Center, Badge, Button, useToast } from "@chakra-ui/react";
@@ -8,7 +8,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalFooter,
-  Text,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -58,7 +57,7 @@ export const ResultCard = ({ movie }) => {
           <ModalHeader>Preview</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Movieprev movie={movie}/>
+            <Movieprev movie={movie} />
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
