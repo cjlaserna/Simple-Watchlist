@@ -62,7 +62,6 @@ export default function Profile() {
           Username
         </FormLabel>
         <Input
-          placeholder="johnDoe2"
           variant={"filled"}
           display={"inline"}
           id="input-username"

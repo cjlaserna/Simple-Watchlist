@@ -57,10 +57,47 @@ export const ResultCard = ({ movie }) => {
           <ModalHeader>Preview</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Movieprev movie={movie} />
+            {isOpen ? <Movieprev movie={movie} /> : '' }
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
+          <ModalFooter mb={1}>
+            <div className="controls">
+              <Button
+                className="btn"
+                disabled={watchlistDisabled}
+                onClick={() => {
+                  addMovieToWatchlist(movie);
+                  toast({
+                    title: "Added to Watchlist.",
+                    description:
+                      "Sucessfully moved this movie to your regular watchlist.",
+                    status: "success",
+                    duration: 800,
+                    isClosable: true,
+                  });
+                }}
+              >
+                Add to Watchlist
+              </Button>
+
+              <Button
+                ml={2}
+                className="btn"
+                disabled={watchedDisabled}
+                onClick={() => {
+                  addMovieToWatched(movie);
+                  toast({
+                    title: "Added to Watched.",
+                    description:
+                      "Sucessfully moved this movie to your watched list.",
+                    status: "success",
+                    duration: 800,
+                    isClosable: true,
+                  });
+                }}
+              >
+                Watched
+              </Button>
+            </div>
           </ModalFooter>
         </ModalContent>
       </Modal>

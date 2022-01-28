@@ -248,6 +248,7 @@ header .nav-links li:last-child {
   height: 100%;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .movie-card:hover .overlay {
