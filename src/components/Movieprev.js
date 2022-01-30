@@ -14,7 +14,7 @@ import { GrDocumentMissing } from "react-icons/gr";
 
 export function Movieprev({ movie }) {
   const [origin, setOrigin] = useState("N/A");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("N/A");
   const [name, setName] = useState("N/A");
   const apiKey = process.env.REACT_APP_TMDB_KEY;
   const namsorKey = process.env.REACT_APP_NAMSOR_KEY;
@@ -121,7 +121,6 @@ export function Movieprev({ movie }) {
     };
   };
 
-  console.log("being called");
   useEffect(() => getOrigin({ name }), []);
   return (
     <>

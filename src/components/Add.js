@@ -21,7 +21,6 @@ export const Add = () => {
       .then((data) => {
         if (!data.errors) {
           setResults(data.results.slice(0, 5));
-          console.log(results)
         } else {
           setResults([]);
         }
@@ -42,7 +41,7 @@ export const Add = () => {
             />
           </div>
           {results.length > 0 && (
-            <ul className="results">
+            <ul className="results"> 
               {results.map((movie) => (
                 <li key={movie.id}>
                   <ResultCard movie={movie} />

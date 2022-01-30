@@ -16,12 +16,17 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  CloseButton,
 } from "@chakra-ui/react";
 import { useAuth } from "./context/Auth";
 import Profile from "./Profile";
 
 export const Header = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { user, signOut } = useAuth();
 
   const history = useNavigate();
@@ -36,10 +41,14 @@ export const Header = () => {
 
   return (
     <header>
+      <Alert status="error" variant={"solid"} className="mobile">
+        <AlertTitle>This site isn't compatible with smaller screens.</AlertTitle>
+        <CloseButton position="absolute" right="8px" top="8px" />
+      </Alert>
       <Box boxShadow="base" bg="black" color="black" px={20}>
         <Box className="inner-content" mx={20} px={10}>
           <div className="brand">
-            <Link to="/">MRIF</Link>
+            <Link to="/">Watchlist</Link>
           </div>
 
           {user ? (
@@ -83,7 +92,9 @@ export const Header = () => {
                         borderColor={"purple.50"}
                         variant="outline"
                       >
-                        <MenuItem icon={<FaUser/>} onClick={onOpen}>Change Profile</MenuItem>
+                        <MenuItem icon={<FaUser />} onClick={onOpen}>
+                          Change Profile
+                        </MenuItem>
                         <MenuItem onClick={handleSignOut} icon={<FaDoorOpen />}>
                           Logout
                         </MenuItem>

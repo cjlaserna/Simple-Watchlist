@@ -9,34 +9,33 @@ import { AuthProvider } from "./components/context/Auth";
 import { PrivateRoute } from "./components/PrivateRoute";
 
 import "./App.css";
-
-import { GlobalProvider } from "./components/context/GlobalState";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
-    <GlobalProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <Header />
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+        <div className="content-wrapper">
+        <Routes>
+          <Route exact path="/" element={<Homepage />}></Route>
 
-          <Routes>
-            <Route exact path="/" element={<Homepage />}></Route>
+          <Route exact path="/" element={<PrivateRoute />}>
+            <Route path="/watchlist" element={<Watchlist />}></Route>
+          </Route>
 
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route path="/watchlist" element={<Watchlist />}></Route>
-            </Route>
+          <Route exact path="/" element={<PrivateRoute />}>
+            <Route path="/watched" element={<Watched />}></Route>
+          </Route>
 
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route path="/watched" element={<Watched />}></Route>
-            </Route>
-
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route path="/add" element={<Add />}></Route>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-    </GlobalProvider>
+          <Route exact path="/" element={<PrivateRoute />}>
+            <Route path="/add" element={<Add />}></Route>
+          </Route>
+        </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

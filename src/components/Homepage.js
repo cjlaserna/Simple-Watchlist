@@ -1,12 +1,9 @@
 import React from "react";
-import { Link} from "react-router-dom";
-
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
@@ -17,7 +14,7 @@ import {
   GridItem,
   Button,
   Text,
-  } from "@chakra-ui/react";
+} from "@chakra-ui/react";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 
@@ -27,9 +24,8 @@ export const Homepage = () => {
 
   const handleClick = (isSignUp) => {
     setModalSignup(isSignUp);
-    onOpen()
-    console.log(modalsignup)
-  }
+    onOpen();
+  };
 
   return (
     <Box>
@@ -52,8 +48,8 @@ export const Homepage = () => {
         <GridItem w="100%" h="45%" />
         <GridItem w="100%" h="45%">
           <Heading fontSize={"6xl"}>
-            Find your <br />
-            <span className="secondary">REP</span> In Film
+            Watchlists <br />
+            <span className="secondary">truly yours.</span>
           </Heading>
           <Button
             colorScheme={"whiteAlpha"}
@@ -82,18 +78,19 @@ export const Homepage = () => {
           </Button>
         </GridItem>
       </Grid>
-      
+
       <Modal onClose={onClose} isOpen={isOpen} isCentered size={"xs"}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
-            {modalsignup ? <Text>Create Your Account</Text> : <Text>Login</Text>}
-            
+            {modalsignup ? (
+              <Text>Create Your Account</Text>
+            ) : (
+              <Text>Login</Text>
+            )}
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            {modalsignup ? <Signup/> : <Login/>}
-          </ModalBody>
+          <ModalBody>{modalsignup ? <Signup /> : <Login />}</ModalBody>
         </ModalContent>
       </Modal>
     </Box>
